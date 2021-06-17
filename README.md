@@ -1,10 +1,10 @@
 # account-owner-client
 
-> Account Owner Client
+> Swim Spot Client
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
