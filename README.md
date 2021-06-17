@@ -1,4 +1,4 @@
-# account-owner-client
+# swim-spot-client
 
 > Swim Spot Client
 
