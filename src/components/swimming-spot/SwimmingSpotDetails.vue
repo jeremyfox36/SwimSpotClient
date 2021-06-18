@@ -6,7 +6,7 @@
           <strong>Swim spot name:</strong>
         </div>
         <div class="col-md-3">
-          {{ "swimspot.name" }}
+          {{ swimspot.swimmingSpotName }}
         </div>
       </div>
     </div>

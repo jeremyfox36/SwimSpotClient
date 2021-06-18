@@ -36,7 +36,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <swimming-spot-map></swimming-spot-map>
+      <swimming-spot-map :swimspots="swimmingspots"></swimming-spot-map>
     </b-row>
   </div>
 </template>
