@@ -6,6 +6,7 @@
       :center="center"
       :min-zoom="minZoom"
       :max-zoom="maxZoom"
+      @click="handleMapClick"
       style="height: 500px; width: 100%"
     >
       <l-tile-layer
@@ -62,6 +63,11 @@ export default {
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       token: 'your token if using mapbox',
     };
+  },
+  methods: {
+    handleMapClick(event) {
+      console.log(event.latlng.lat);
+    },
   },
   mounted() {
   },

@@ -4,6 +4,7 @@ import Home from '@/components/Home';
 import Notfound from '@/components/error-pages/Notfound';
 import SwimmingSpot from '@/components/swimming-spot/SwimmingSpot.component';
 import SwimmingSpotDetails from '@/components/swimming-spot/SwimmingSpotDetails';
+import SwimmingSpotForm from '@/components/swimming-spot/SwimmingSpotForm';
 
 Vue.use(Router);
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/swimmingspot/:id',
       name: 'SwimmingSpotDetails',
       component: SwimmingSpotDetails,
+    },
+    {
+      path: '/swimmingspot/add',
+      name: 'SwimmingSpotForm',
+      component: SwimmingSpotForm,
     },
     {
       path: '*',

@@ -4,7 +4,7 @@
       <b-col
         md="2"
         offset-md="10">
-        <b-button variant="outline-primary" href="#">Add new swim spot</b-button>
+        <b-button @click="addSwimmingSpot" variant="primary">Add new spot</b-button>
       </b-col>
     </b-row>
     <br>
@@ -62,6 +62,9 @@ export default {
   methods: {
     detailsSwimmingSpot(swimmingSpotId) {
       this.$router.push({ name: 'SwimmingSpotDetails', params: { id: swimmingSpotId } });
+    },
+    addSwimmingSpot() {
+      this.$router.push({ name: 'SwimmingSpotForm' });
     },
     updateSwimmingSpot(swimmingSpotId) {
     },

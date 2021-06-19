@@ -1,29 +1,11 @@
 <template>
   <div>
-    <div class="well">
-      <div class="row">
-        <div class="col-md-3">
-          <strong>Swim spot name:</strong>
+    <b-jumbotron bg-variant="info" :header="swimspot.swimmingSpotName">
+        <div v-for="comment in swimspot.comments" :key="comment.SwimmingSpotCommentId">
+          <h2>{{ comment.swimDate | date }}</h2>
+            <div>{{ comment.content }}</div>
         </div>
-        <div class="col-md-3">
-          {{ swimspot.swimmingSpotName }}
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <b-card
-          v-for="comment in swimspot.comments"
-          :key="comment.SwimmingSpotCommentId"
-          v-bind:title="comment.swimDate | date"
-          >
-          <b-card-text>
-            {{ comment.content }}
-          </b-card-text>
-        </b-card>
-      </div>
-    </div>
+    </b-jumbotron>
   </div>
 </template>
 <script>
