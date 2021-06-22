@@ -12,6 +12,9 @@ import App from './App';
 import router from './router';
 import DateFilter from './filters/date';
 
+import { domain, clientId } from '../auth_config.json';
+
+import { Auth0Plugin } from './auth';
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -20,6 +23,17 @@ Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
+Vue.use(Auth0Plugin, {
+  domain,
+  clientId,
+  onRedirectCallback: (appState) => {
+    router.push(
+      appState && appState.targetUrl
+        ? appState.targetUrl
+        : window.location.pathname,
+    );
+  },
+});
 
 Vue.filter('date', DateFilter);
 
