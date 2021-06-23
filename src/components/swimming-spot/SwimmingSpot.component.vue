@@ -45,7 +45,6 @@ import SwimmingSpotService from '@/api-services/swimmingspot.service';
 import SwimmingSpotListRow from '@/components/swimming-spot/SwimmingSpotListRow';
 import SwimmingSpotMap from '@/components/swimming-spot/SwimmingSpotMap';
 
-
 export default {
   components: { SwimmingSpotListRow, SwimmingSpotMap },
   name: 'SwimmingSpot',
@@ -54,12 +53,15 @@ export default {
       swimmingspots: [],
     };
   },
-  created() {
-    SwimmingSpotService.getAll().then((response) => {
-      this.swimmingspots = response.data;
-    });
+  mounted() {
+    this.getAllSwimmingspots();
   },
   methods: {
+    async getAllSwimmingspots() {
+      const token = await this.$auth.getTokenSilently();
+      const { data } = SwimmingSpotService.getAll(token);
+      this.swimmingspots = data;
+    },
     detailsSwimmingSpot(swimmingSpotId) {
       this.$router.push({ name: 'SwimmingSpotDetails', params: { id: swimmingSpotId } });
     },

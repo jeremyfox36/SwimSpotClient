@@ -3,8 +3,12 @@ import Axios from 'axios';
 const RESOURCE_NAME = '/swimmingspot';
 
 export default {
-  getAll() {
-    return Axios.get(RESOURCE_NAME);
+  getAll(token) {
+    return Axios.get(RESOURCE_NAME, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   },
   get(id) {
     return Axios.get(`${RESOURCE_NAME}/${id}`);
@@ -17,5 +21,7 @@ export default {
   },
   delete(id) {
     return Axios.delete(`${RESOURCE_NAME}/${id}`);
+  },
+  methods: {
   },
 };
