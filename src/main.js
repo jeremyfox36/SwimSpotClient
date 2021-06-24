@@ -38,11 +38,13 @@ Vue.use(Auth0Plugin, {
 
 Vue.filter('date', DateFilter);
 
-Vue.config.productionTip = false;
-
 Axios.defaults.baseURL = process.env.API_ENDPOINT;
 
 Vue.use(BootstrapVue);
+
+Vue.prototype.$http = Axios;
+
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({

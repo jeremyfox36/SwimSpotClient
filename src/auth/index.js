@@ -61,8 +61,6 @@ export const useAuth0 = ({
           this.user = await this.auth0Client.getUser();
           this.isAuthenticated = true;
           this.error = null;
-          localStorage.setItem('token', this.$auth.getTokenSilently());
-          console.log(localStorage.getItem('token'));
         } catch (e) {
           this.error = e;
         } finally {
@@ -71,6 +69,7 @@ export const useAuth0 = ({
       },
       /** Authenticates the user using the redirect method */
       loginWithRedirect(o) {
+        localStorage.setItem('accessToken', this.accessToken);
         return this.auth0Client.loginWithRedirect(o);
       },
       /** Returns all the claims present in the ID token */
@@ -88,6 +87,7 @@ export const useAuth0 = ({
       },
       /** Logs the user out and removes their session on the authorization server */
       logout(o) {
+        localStorage.removeItem('accessToken');
         return this.auth0Client.logout(o);
       },
     },

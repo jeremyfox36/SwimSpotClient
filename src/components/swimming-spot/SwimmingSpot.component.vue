@@ -53,13 +53,13 @@ export default {
       swimmingspots: [],
     };
   },
-  mounted() {
+  created() {
     this.getAllSwimmingspots();
   },
   methods: {
     async getAllSwimmingspots() {
       const token = await this.$auth.getTokenSilently();
-      const { data } = SwimmingSpotService.getAll(token);
+      const data = await SwimmingSpotService.getAll(token).then(res => res.data);
       this.swimmingspots = data;
     },
     detailsSwimmingSpot(swimmingSpotId) {
