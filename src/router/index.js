@@ -32,7 +32,7 @@ export default new Router({
     {
       path: '/swimmingspot/add',
       name: 'SwimmingSpotForm',
-      component: InputForm,
+      component: SwimmingSpotForm,
     },
     {
       path: '*',

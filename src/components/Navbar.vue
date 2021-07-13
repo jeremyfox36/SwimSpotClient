@@ -1,7 +1,7 @@
 <template>
 <div>
   <b-navbar toggleable="lg" type="dark" variant="info"
-  style="padding-left: 10px;padding-right: 10px;">
+  style="padding-left: 10px; padding-right: 10px; margin-bottom: 10px;">
     <b-navbar-brand :to="{ name: 'Home' }">Home</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

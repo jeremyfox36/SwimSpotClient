@@ -67,7 +67,10 @@ export default {
   },
   methods: {
     handleMapClick(event) {
-
+            
+    },
+    handleMarkerClick(event) {
+      alert(event.latlng);
     },
   },
   mounted() {
@@ -75,7 +78,7 @@ export default {
   computed: {
     markers() {
       function makeSpot(item) {
-        return { position: { lat: item.latitude, lng: item.longitude } };
+        return { position: { lat: item.latitude, lng: item.longitude }, popup: item.swimmingSpotName };
       }
       return this.swimspots.map(spot => makeSpot(spot));
     },

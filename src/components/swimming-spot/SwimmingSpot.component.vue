@@ -4,7 +4,7 @@
       <b-col
         md="2"
         offset-md="10">
-        <b-button @click="addSwimmingSpot" variant="primary">Add new spot</b-button>
+        <swimming-spot-add></swimming-spot-add>
       </b-col>
     </b-row>
     <br>
@@ -44,9 +44,10 @@
 import SwimmingSpotService from '@/api-services/swimmingspot.service';
 import SwimmingSpotListRow from '@/components/swimming-spot/SwimmingSpotListRow';
 import SwimmingSpotMap from '@/components/swimming-spot/SwimmingSpotMap';
+import SwimmingSpotAdd from '@/components/swimming-spot/SwimmingSpotAdd';
 
 export default {
-  components: { SwimmingSpotListRow, SwimmingSpotMap },
+  components: { SwimmingSpotListRow, SwimmingSpotMap, SwimmingSpotAdd },
   name: 'SwimmingSpot',
   data() {
     return {

@@ -16,6 +16,7 @@ import { domain, clientId, audience } from '../auth_config.json';
 
 import { Auth0Plugin } from './auth';
 
+// allows leaflet map markers to be imported
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
