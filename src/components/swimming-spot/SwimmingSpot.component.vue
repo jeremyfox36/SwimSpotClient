@@ -51,19 +51,20 @@ export default {
   data() {
     return {
       swimmingspots: [],
+      token: null,
     };
   },
-  created() {
+  async created() {
+    this.token = await this.$auth.getTokenSilently();
     this.getAllSwimmingspots();
   },
   methods: {
     async getAllSwimmingspots() {
-      const token = await this.$auth.getTokenSilently();
-      const data = await SwimmingSpotService.getAll(token).then(res => res.data);
+      const data = await SwimmingSpotService.getAll(this.token).then(res => res.data);
       this.swimmingspots = data;
     },
     detailsSwimmingSpot(swimmingSpotId) {
-      this.$router.push({ name: 'SwimmingSpotDetails', params: { id: swimmingSpotId } });
+      this.$router.push({ name: 'SwimmingSpotDetails', params: { id: swimmingSpotId, token: this.token } });
     },
     addSwimmingSpot() {
       this.$router.push({ name: 'SwimmingSpotForm' });

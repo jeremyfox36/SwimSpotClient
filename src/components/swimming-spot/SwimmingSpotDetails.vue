@@ -18,8 +18,9 @@ export default {
       swimspot: {},
     };
   },
-  created() {
-    SwimmingSpotService.get(this.$router.currentRoute.params.id).then((response) => {
+  async created() {
+    const token = await this.$auth.getTokenSilently();
+    SwimmingSpotService.get(this.$router.currentRoute.params.id, token).then((response) => {
       this.swimspot = response.data;
     });
   },

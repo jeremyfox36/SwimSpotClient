@@ -4,5 +4,5 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API_ENDPOINT: '"https://swimspotapi20210622112824.azurewebsites.net/api"'
+  API_ENDPOINT: '"https://localhost:5001/api"'
 })

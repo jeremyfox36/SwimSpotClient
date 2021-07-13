@@ -17,14 +17,26 @@ export default {
       },
     });
   },
-  create(data) {
-    return Axios.post(RESOURCE_NAME, data);
+  create(data, token) {
+    return Axios.post(RESOURCE_NAME, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   },
-  update(id, data) {
-    return Axios.put(`${RESOURCE_NAME}/${id}`, data);
+  update(id, data, token) {
+    return Axios.put(`${RESOURCE_NAME}/${id}`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   },
-  delete(id) {
-    return Axios.delete(`${RESOURCE_NAME}/${id}`);
+  delete(id, token) {
+    return Axios.delete(`${RESOURCE_NAME}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   },
   methods: {
   },

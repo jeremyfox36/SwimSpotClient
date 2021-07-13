@@ -20,6 +20,7 @@
         :lat-lng="item.position"
         :visible="item.visible"
         :draggable="item.draggable"
+        @click="handleMapClick"
       >
         <l-popup>
             {{ item.popup }}
@@ -66,7 +67,7 @@ export default {
   },
   methods: {
     handleMapClick(event) {
-      console.log(event.latlng.lat);
+
     },
   },
   mounted() {
@@ -74,7 +75,7 @@ export default {
   computed: {
     markers() {
       function makeSpot(item) {
-        return { position: { lat: item.latitude, lng: item.longitude }, popup: `${item.swimmingSpotName}` };
+        return { position: { lat: item.latitude, lng: item.longitude } };
       }
       return this.swimspots.map(spot => makeSpot(spot));
     },

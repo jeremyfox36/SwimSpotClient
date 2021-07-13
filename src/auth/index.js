@@ -69,7 +69,6 @@ export const useAuth0 = ({
       },
       /** Authenticates the user using the redirect method */
       loginWithRedirect(o) {
-        localStorage.setItem('accessToken', this.accessToken);
         return this.auth0Client.loginWithRedirect(o);
       },
       /** Returns all the claims present in the ID token */
@@ -87,7 +86,6 @@ export const useAuth0 = ({
       },
       /** Logs the user out and removes their session on the authorization server */
       logout(o) {
-        localStorage.removeItem('accessToken');
         return this.auth0Client.logout(o);
       },
     },
@@ -98,6 +96,7 @@ export const useAuth0 = ({
         ...options,
         client_id: options.clientId,
         redirect_uri: redirectUri,
+        useRefreshTokens: true,
       });
 
       try {
@@ -110,7 +109,6 @@ export const useAuth0 = ({
           const { appState } = await this.auth0Client.handleRedirectCallback();
 
           this.error = null;
-
           // Notify subscribers that the redirect callback has happened, passing the appState
           // (useful for retrieving any pre-authentication state)
           onRedirectCallback(appState);
